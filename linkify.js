@@ -34,7 +34,7 @@ const replaceLink = (text) => {
 
 const appendBlog = (text) => {
   const blog = document.querySelector(".blog-container");
-  const newBlog = document.createElement('p');
+  const newBlog = document.createElement('div');
   newBlog.innerHTML = text;
   blog.prepend(newBlog);
 };
