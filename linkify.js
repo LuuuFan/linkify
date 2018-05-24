@@ -15,8 +15,6 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 const convertLink = () => {
-  const divList = document.querySelectorAll('div');
-  const pList = document.querySelectorAll('p');
   const main = document.querySelector('.main');
   main.innerHTML = replaceLink(main.innerHTML);
 };
