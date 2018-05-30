@@ -15,10 +15,9 @@ document.addEventListener("DOMContentLoaded", function(){
     }
   });
   
-  // document.addEventListener('DOMNodeInserted', function(){
-  //   const wholeContent = document.querySelector('body');
-  //   convertLink(wholeContent);
-  // });
+  document.addEventListener('DOMNodeInserted', function(e){
+    convertLink(e.relatedNode);
+  });
 });
 
 
@@ -26,9 +25,9 @@ const convertLink = (el) => {
   if (el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
     el.innerHTML = replaceLink(el.innerHTML);
   } else if (el.nodeType === 3 && el.nodeValue.trim()){
-    const div = document.createElement('p');
-    div.innerHTML = replaceLink(el.nodeValue);
-    el.parentElement.replaceChild(div, el);
+    const span = document.createElement('span');
+    span.innerHTML = replaceLink(el.nodeValue);
+    el.parentElement.replaceChild(span, el);
   } else {
     el.childNodes.forEach(node => {
       convertLink(node);
